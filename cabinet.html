@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echo — Кабинет</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .wrap{max-width:920px;margin:32px auto;padding:0 16px}
+    .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:16px 0}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    input,select,textarea,button{padding:10px;border:1px solid #ccc;border-radius:8px}
+    button{cursor:pointer}
+    table{width:100%;border-collapse:collapse}
+    th,td{border-bottom:1px solid #eee;padding:8px 6px;text-align:left}
+    .muted{color:#666;font-size:.9em}
+    .ok{color:#0a6}
+    .err{color:#c00}
+    pre{white-space:pre-wrap;word-break:break-word}
+    .topnav{display:flex;gap:12px;align-items:center}
+    .topnav a{color:#06c;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topnav">
+      <a href="index.html">← На главную</a>
+      <h2 style="margin:0">Кабинет</h2>
+      <span class="muted">API: <code id="apiBaseView"></code></span>
+    </div>
+
+    <div class="card">
+      <h3>1) Добавить получателя</h3>
+      <div class="row">
+        <input id="rName" placeholder="Имя" />
+        <select id="rChannel" title="Канал">
+          <option value="email">email</option>
+          <option value="telegram">telegram</option>
+        </select>
+        <input id="rAddress" placeholder="Адрес (email или @username)" style="min-width:260px" />
+        <button id="btnAdd">Сохранить</button>
+      </div>
+      <div class="muted">Отправим: <code>{ name, channel, address }</code> → <code>/api/recipients</code></div>
+      <div id="addMsg" class="muted"></div>
+    </div>
+
+    <div class="card">
+      <h3>2) Получатели</h3>
+      <div class="row">
+        <button id="btnLoad">Обновить список</button>
+      </div>
+      <table id="recipientsTbl">
+        <thead><tr><th>ID</th><th>Имя</th><th>Канал</th><th>Адрес</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>3) Запланировать послание</h3>
+      <div class="row">
+        <select id="msgRecipient" title="Получатель"></select>
+        <input id="msgWhen" type="datetime-local" />
+      </div>
+      <div class="row">
+        <textarea id="msgText" rows="4" style="flex:1" placeholder="Текст послания"></textarea>
+      </div>
+      <div class="row">
+        <button id="btnSend">Запланировать</button>
+      </div>
+      <div class="muted">Отправим: <code>{ recipient_id, content, send_at }</code> → <code>/api/messages</code></div>
+      <div id="sendMsg" class="muted"></div>
+    </div>
+
+    <div class="card">
+      <details>
+        <summary>Debug</summary>
+        <pre id="debug"></pre>
+      </details>
+    </div>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/cabinet.js" defer></script>
+</body>
+</html>
