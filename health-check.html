@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ECHO — Проверка</title><link rel="stylesheet" href="assets/css/style.css"><script defer src="assets/js/config.js"></script><script>
+document.addEventListener('DOMContentLoaded', async ()=>{
+  const out = document.getElementById('out');
+  function log(line){ out.textContent += line + "\n"; }
+  log("Health-check started…");
+
+  // Check assets
+  try{
+    const css = await fetch('assets/css/style.css', {cache:'no-cache'});
+    log('CSS: ' + css.status);
+    const i18n = await fetch('assets/i18n/ru.json', {cache:'no-cache'});
+    log('i18n RU: ' + i18n.status);
+    const logo = await fetch('assets/img/logo.svg', {cache:'no-cache'});
+    log('logo.svg: ' + logo.status);
+  }catch(e){ log('Assets check error: ' + e.message); }
+
+  // Optional API ping
+  if (window.ECHO_CONFIG && window.ECHO_CONFIG.api_base){
+    try{
+      const ping = await fetch(window.ECHO_CONFIG.api_base.replace(/\/$/, '') + '/api/ping');
+      log('API /ping: ' + ping.status);
+    }catch(e){ log('API ping error: ' + e.message); }
+  }else{
+    log('api_base not configured — skipping API checks.');
+  }
+});
+</script></head><body><main class="container" style="padding:4rem 0 3rem"><h1>Проверка</h1><pre id="out" style="padding:1rem;border:1px solid rgba(127,127,127,.3);border-radius:12px;overflow:auto;min-height:180px"></pre><p><a class="btn ghost" href="index.html">← На главную</a></p></main></body></html>

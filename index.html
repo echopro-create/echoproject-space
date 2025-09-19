@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="meta.title">ECHO — послания, которые переживут нас</title>
+  <meta name="description" data-i18n="meta.description" content="ECHO помогает записать послание — текст, фото или видео — и, когда вас не станет, автоматически доставит его тем, кому вы не успели или не решались сказать при жизни." />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="preload" href="assets/css/style.css" as="style" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:title" content="ECHO — послания, которые переживут нас" />
+  <meta property="og:description" content="Письмо, фото, видео — ваше наследие слов. Мы доставим его родным вовремя: в назначённый срок или автоматически, когда вас не станет." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.echoproject.space/" />
+  <meta property="og:image" content="assets/img/og.png" />
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+  <script defer src="assets/js/config.js"></script>
+  <script defer src="assets/js/analytics.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="ECHO Home">
+        <img src="assets/img/logo.svg" width="36" height="36" alt="ECHO" />
+        <span class="logo-text">ECHO</span>
+      </a>
+
+      <nav class="top-nav" aria-label="Main">
+        <button class="btn ghost" id="btn-how" data-scroll-target="#how" data-i18n="nav.how">Как это работает</button>
+        <button class="btn ghost" id="btn-faq" data-scroll-target="#faq" data-i18n="nav.faq">Вопросы</button>
+        <a class="btn primary" id="btn-login" href="index.html#" rel="nofollow" data-i18n="nav.login">Войти</a>
+
+        <div class="locale">
+          <label class="sr-only" for="lang-select" data-i18n="nav.language">Язык</label>
+          <select id="lang-select" class="select">
+            <option value="ru">RU</option>
+            <option value="en">EN</option>
+            <option value="no">NO</option>
+          </select>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <picture>
+          <source srcset="assets/img/hero-1600.png" media="(min-width: 1200px)">
+          <source srcset="assets/img/hero-1200.png" media="(min-width: 800px)">
+          <img src="assets/img/hero-800.png" alt="" style="display:none" />
+        </picture>
+        <h1 class="headline" data-i18n="hero.title">Послания, которые переживут нас</h1>
+        <p class="subhead" data-i18n="hero.subtitle">ECHO помогает записать послание — текст, фото или видео — и, когда вас не станет, автоматически доставит его тем, кому вы не успели или не решались сказать при жизни.</p>
+        <div class="cta">
+          <a class="btn primary" id="cta-start" href="index.html#" data-i18n="hero.cta">Начать</a>
+        </div>
+        <div class="trust" role="region" aria-label="Почему можно доверять">
+          <ul class="trust-list">
+            <li><span aria-hidden="true">•</span> <span data-i18n="trust.eu">Хранение в ЕС</span></li>
+            <li><span aria-hidden="true">•</span> <span data-i18n="trust.trigger">Доступ по вашему триггеру</span></li>
+            <li><span aria-hidden="true">•</span> <span data-i18n="trust.cancel">Экстренная отмена</span></li>
+            <li><span aria-hidden="true">•</span> <span data-i18n="trust.audit">Аудит безопасности (запланирован)</span></li>
+          </ul>
+        </div>
+      </div>
+      <button class="scroll" id="scroll-down" aria-label="Прокрутить вниз">
+        <span class="sr-only" data-i18n="scroll">Прокрутить вниз</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h12z"/></svg>
+      </button>
+    </section>
+
+    <section class="how" id="how">
+      <div class="container">
+        <h2 data-i18n="how.title">Как это работает</h2>
+        <ol class="steps">
+          <li>
+            <h3 data-i18n="how.s1.title">Запишите послание</h3>
+            <p data-i18n="how.s1.text">Текст, фото или видео — так, как легче сказать важное.</p>
+          </li>
+          <li>
+            <h3 data-i18n="how.s2.title">Выберите момент</h3>
+            <p data-i18n="how.s2.text">Конкретная дата, событие или автоматически — когда вас не станет.</p>
+          </li>
+          <li>
+            <h3 data-i18n="how.s3.title">Мы доставим</h3>
+            <p data-i18n="how.s3.text">До отправки можно изменить или отменить послание.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="container">
+        <h2 data-i18n="why.title">Зачем это нужно</h2>
+        <div class="why-grid">
+          <article class="card">
+            <h3 data-i18n="why.family.title">Для семьи и детей</h3>
+            <p data-i18n="why.family.text">Письма и видео к 18-летию, свадьбе и важным датам — чтобы главные слова были рядом, даже если вас уже нет.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="why.risk.title">Для тех, кто рискует</h3>
+            <p data-i18n="why.risk.text">Служба, частые поездки, опасная работа. Инструкции и поддержка «на случай непредвиденного».</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="why.health.title">При болезни</h3>
+            <p data-i18n="why.health.text">Спокойно записать послания близким и выбрать моменты доставки — чтобы быть рядом в нужные дни.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="why.access.title">Для дел и доступа</h3>
+            <p data-i18n="why.access.text">Контакты, документы, доступы — передать тем, кому это действительно нужно.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 data-i18n="faq.title">Вопросы</h2>
+        <details>
+          <summary data-i18n="faq.q1">Как подтверждается «когда вас не станет»?</summary>
+          <p data-i18n="faq.a1">Сервис аккуратно проверяет ваше присутствие по лёгким сигналам. Если их нет длительное время — мы запускаем процедуру подтверждения с запасом времени на отмену.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q2">Что с приватностью?</summary>
+          <p data-i18n="faq.a2">Все данные шифруются, хранятся в ЕС и доступны только по вашим условиям и триггерам.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q3">Можно удалить всё?</summary>
+          <p data-i18n="faq.a3">Да, вы можете в любой момент полностью удалить записи и учётную запись.</p>
+        </details>
+      </div>
+    </section>
+  <script defer src="assets/js/cookie.js"></script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© <span id="year"></span> ECHO</p>
+      <nav class="footer-nav">
+        <a href="health-check.html" class="muted" data-i18n="footer.health">Проверка</a>
+        <a href="privacy.html" class="muted" data-i18n="footer.privacy">Приватность</a>
+        <a href="terms.html" class="muted" data-i18n="footer.terms">Условия</a>
+      </nav>
+    </div>
+  </footer>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('assets/js/sw.js').catch(console.error);
+}
+</script>
+</body>
+</html>
