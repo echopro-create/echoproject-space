@@ -1,0 +1,39 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body{height:100%;}
+body{background:#0b0b0b;color:#eaeaea;line-height:1.6;}
+a{text-decoration:none;}
+
+
+body{font-family:var(--font-inter), ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;}
+/* — Fix: first letter in paragraphs — */
+p{ text-indent:0 !important; }
+p::first-letter{
+  initial-letter: 0 1;
+  -webkit-initial-letter: 0 1;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  content: normal !important;
+}
+/* --- Cyrillic first-letter fix --- */
+:lang(ru) p, :lang(ru) h1, :lang(ru) h2, :lang(ru) h3, :lang(ru) h4, :lang(ru) h5, :lang(ru) h6,
+:lang(ru) li, :lang(ru) a, :lang(ru) span, :lang(ru) div {
+  text-indent: 0 !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: currentColor !important;
+  text-shadow: 0 0 0 currentColor !important; /* пробивает прозрачные fill/tricks */
+}
+:lang(ru) *::first-letter {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  content: normal !important;
+}
