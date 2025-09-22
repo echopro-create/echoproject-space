@@ -37,3 +37,33 @@ p::first-letter{
   filter: none !important;
   content: normal !important;
 }
+/* === ECHO anti-missing-first-letter shield === */
+html { color-scheme: dark light; }
+body { color: #eaeaea; background:#0b0b0b; }
+p, li, a, span, div, h1, h2, h3, h4, h5, h6, label, button, input, textarea {
+  text-indent: 0 !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: currentColor !important;
+}
+/* Сбрасываем любые манипуляции с первой буквой */
+*::first-letter {
+  initial-letter: 0 1 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  content: normal !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+/* а всякий — не даём псевдоэлементам перекрывать символ */
+*::before, *::after { pointer-events: none; }
+/* === Nuclear fix for missing first letter === */
+*::first-letter { all: unset !important; display: inline !important; }
+* { text-indent: 0 !important; font-variant-ligatures: normal !important; text-rendering: optimizeSpeed !important; }
+/* DEV first-letter guard */
+*::first-letter{ all:unset!important; display:inline!important; }
+*{ text-indent:0!important; }

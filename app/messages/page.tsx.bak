@@ -2,7 +2,7 @@
   return (
     <main className="p-8">
       <h1 className="text-2xl font-semibold">Сообщения</h1>
-      <p className="text-neutral-500 mt-2">аздел во временной заглушке - собираем прод.</p>
+      <p className="text-neutral-500 mt-2">аздел в разработке. Скоро вернём.</p>
     </main>
   );
 }
