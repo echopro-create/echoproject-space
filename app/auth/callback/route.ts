@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
-  const cookieStore = cookies();
+  const cookieStore = await cookies(); // добавили await
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
