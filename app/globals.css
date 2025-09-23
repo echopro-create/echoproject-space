@@ -2,81 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body{height:100%;}
-body{line-height:1.6;}line-height:1.6;}
-a{text-decoration:none;}
-
-
-body{font-family:var(--font-inter), ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;}
-/* — Fix: first letter in paragraphs — */
-p{ text-indent:0 !important; }
-p::first-letter{
-  initial-letter: 0 1;
-  -webkit-initial-letter: 0 1;
-  font-size: inherit !important;
-  line-height: inherit !important;
-  float: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  visibility: visible !important;
-  content: normal !important;
-}
-/* --- Cyrillic first-letter fix --- */
-:lang(ru) p, :lang(ru) h1, :lang(ru) h2, :lang(ru) h3, :lang(ru) h4, :lang(ru) h5, :lang(ru) h6,
-:lang(ru) li, :lang(ru) a, :lang(ru) span, :lang(ru) div {
-  text-indent: 0 !important;
-  -webkit-text-fill-color: currentColor !important;
-  color: currentColor !important;
-  text-shadow: 0 0 0 currentColor !important; /* пробивает прозрачные fill/tricks */
-}
-:lang(ru) *::first-letter {
-  font-size: inherit !important;
-  line-height: inherit !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  filter: none !important;
-  content: normal !important;
-}
-/* === ECHO anti-missing-first-letter shield === */
-html { color-scheme: dark light; }
-body { color: #eaeaea; background:#0b0b0b; }
-p, li, a, span, div, h1, h2, h3, h4, h5, h6, label, button, input, textarea {
-  text-indent: 0 !important;
-  -webkit-text-fill-color: currentColor !important;
-  color: currentColor !important;
-}
-/* Сбрасываем любые манипуляции с первой буквой */
-*::first-letter {
-  initial-letter: 0 1 !important;
-  font-size: inherit !important;
-  line-height: inherit !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  filter: none !important;
-  content: normal !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  float: none !important;
-  -webkit-text-fill-color: currentColor !important;
-}
-/* а всякий — не даём псевдоэлементам перекрывать символ */
-*::before, *::after { pointer-events: none; }
-/* === Nuclear fix for missing first letter === */
-*::first-letter { all: unset !important; display: inline !important; }
-* { text-indent: 0 !important; font-variant-ligatures: normal !important; text-rendering: optimizeSpeed !important; }
-/* DEV first-letter guard */
-*::first-letter{ all:unset!important; display:inline!important; }
-*{ text-indent:0!important; }
-
-:root { color-scheme: light dark; }
-body{ background:#ffffff; color:#111111; }
-@media (prefers-color-scheme: dark){
-  body{ background:#0b0b0b; color:#eaeaea; }
-}
-/* === theme block (light default, dark by system) === */
-:root { color-scheme: light dark; }
-html,body { height: 100%; }
-body { background:#ffffff; color:#111111; line-height:1.6; }
-@media (prefers-color-scheme: dark) {
-  body { background:#0b0b0b; color:#eaeaea; }
-}
+/* Always light */
+:root { color-scheme: light; }
+html, body { height: 100%; }
+body { background:#ffffff; color:#111111; line-height: 1.6; }
+a { text-decoration: none; }
