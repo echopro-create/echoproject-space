@@ -1,23 +1,20 @@
 ﻿import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
-/** Возвращает серверный Supabase-клиент. Next 15: cookies() нужно await. */
-export async function getServerSupabase() {
-  const cookieStore = await cookies();
-
+export function createSupabaseServerClient() {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         get(name: string) {
-          return cookieStore.get(name)?.value;
+          return cookies().get(name)?.value;
         },
         set(name: string, value: string, options: any) {
-          cookieStore.set({ name, value, ...options });
+          cookies().set(name, value, options);
         },
         remove(name: string, options: any) {
-          cookieStore.set({ name, value: "", ...options, maxAge: 0 });
+          cookies().set(name, "", { ...options, maxAge: 0 });
         },
       },
     }
