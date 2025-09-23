@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html,body{height:100%;}
-body{background:#0b0b0b;color:#eaeaea;line-height:1.6;}
+body{line-height:1.6;}line-height:1.6;}
 a{text-decoration:none;}
 
 
@@ -67,3 +67,16 @@ p, li, a, span, div, h1, h2, h3, h4, h5, h6, label, button, input, textarea {
 /* DEV first-letter guard */
 *::first-letter{ all:unset!important; display:inline!important; }
 *{ text-indent:0!important; }
+
+:root { color-scheme: light dark; }
+body{ background:#ffffff; color:#111111; }
+@media (prefers-color-scheme: dark){
+  body{ background:#0b0b0b; color:#eaeaea; }
+}
+/* === theme block (light default, dark by system) === */
+:root { color-scheme: light dark; }
+html,body { height: 100%; }
+body { background:#ffffff; color:#111111; line-height:1.6; }
+@media (prefers-color-scheme: dark) {
+  body { background:#0b0b0b; color:#eaeaea; }
+}
