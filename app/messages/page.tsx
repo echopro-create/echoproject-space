@@ -2,7 +2,7 @@
 import { createSupabaseServerClient } from "@/lib/supabase.server";
 
 export default async function MessagesPage() {
-  const supabase = createSupabaseServerClient(); // без аргументов
+  const supabase = await createSupabaseServerClient(); // без аргументов
   const { data: { session } } = await supabase.auth.getSession();
   const user = session?.user;
   if (!user) redirect("/login");
@@ -14,3 +14,4 @@ export default async function MessagesPage() {
     </main>
   );
 }
+
