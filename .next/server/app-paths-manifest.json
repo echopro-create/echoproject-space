@@ -1,0 +1,5 @@
+{
+  "/me/page": "app/me/page.js",
+  "/messages/new/page": "app/messages/new/page.js",
+  "/login/page": "app/login/page.js"
+}

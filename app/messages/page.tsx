@@ -1,89 +1,64 @@
-﻿import { supabaseServer } from "@/lib/supabaseServer";
+import { cookies } from 'next/headers';
+import { createSupabaseServerClient } from '@/lib/supabase.server';
 
-type Message = {
-  id: string;
-  recipient_email: string | null;
-  content_text: string | null;
-  status: string | null;
-  mode: string | null;           // "dms" или иное
-  delivery_at: string | null;    // ISO-строка или null
-};
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
-function statusLabel(s?: string | null) {
-  switch ((s ?? "").toLowerCase()) {
-    case "draft": return "ерновик";
-    case "queued": return " очереди";
-    case "sent": return "тправлено";
-    case "failed": return "шибка";
-    default: return "еизвестно";
-  }
-}
-
-function fmtDate(v: string | null) {
-  if (!v) return "—";
-  const d = new Date(v);
-  if (isNaN(d.getTime())) return "—";
-  return d.toLocaleString("ru-RU");
-}
+const formatRU = (iso?: string | null) =>
+  iso ? new Date(iso).toLocaleString('ru-RU', { dateStyle: 'long', timeStyle: 'short' }) : '—';
 
 export default async function MessagesPage() {
-  const { data, error } = await supabaseServer
-    .from("messages")
-    .select("*")
-    .order("id", { ascending: false });
+  const supabase = createSupabaseServerClient(cookies());
+  const { data: session } = await supabase.auth.getSession();
+  const user = session.session?.user;
 
-  if (error) {
-    return (
-      <main className="p-8">
-        <h1 className="text-2xl font-semibold">Сообщения</h1>
-        <p className="text-red-500 mt-4">шибка загрузки: {error.message}</p>
-      </main>
-    );
+  let items: any[] = [];
+  if (user) {
+    const { data } = await supabase.from('messages').select('*').order('created_at', { ascending: false });
+    items = data ?? [];
   }
 
-  const messages: Message[] = data ?? [];
-
   return (
-    <main className="p-8">
-      <h1 className="text-2xl font-semibold">Сообщения</h1>
+    <div className="container mx-auto px-4 pb-16">
+      <section className="text-center py-16 md:py-24">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Ваши послания</h1>
+        <p className="text-lg text-gray-600 mb-8">Список всех сообщений, которые вы создали.</p>
+        <a href="/messages/new" className="inline-flex px-6 py-3 rounded-full bg-gray-900 text-white hover:bg-black">Создать новое послание</a>
+      </section>
 
-      {messages.length === 0 ? (
-        <p className="text-neutral-500 mt-4">ока нет посланий.</p>
+      {!user ? (
+        <div className="text-center text-gray-500 py-16">
+          <p className="text-lg">Чтобы увидеть послания, выполните вход/создайте сессию.</p>
+        </div>
+      ) : items.length === 0 ? (
+        <div className="text-center text-gray-500 py-16">
+          <p className="text-lg">У вас пока нет посланий.</p>
+          <a href="/messages/new" className="mt-4 inline-block text-sm text-blue-600 hover:underline">Создать первое послание</a>
+        </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-          {messages.map((m, i) => (
-            <div
-              key={m.id}
-              className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 shadow-sm flex flex-col"
-              style={{ animationDelay: `${i * 0.06}s` }}
-            >
-              <div className="flex-grow">
-                <h3 className="text-lg font-semibold truncate">
-                  ослание для {m.recipient_email ?? "—"}
-                </h3>
-                <p className="text-neutral-500 text-sm mt-2 line-clamp-3">
-                  {m.content_text ?? "—"}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((m) => (
+            <div key={m.id} className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+              <div className="mb-2 text-sm text-gray-500">
+                <span className="font-medium text-gray-700">Статус:</span>{' '}
+                <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                  m.status === 'sent' ? 'bg-green-100 text-green-800' :
+                  m.status === 'queued' ? 'bg-blue-100 text-blue-800' :
+                  m.status === 'failed' ? 'bg-red-100 text-red-800' :
+                  'bg-gray-100 text-gray-800'
+                }`}>
+                  {m.status === 'sent' ? 'Отправлено' :
+                   m.status === 'queued' ? 'В очереди' :
+                   m.status === 'failed' ? 'Ошибка' : 'Черновик'}
+                </span>
               </div>
-
-              <div className="mt-4 pt-4 border-t border-neutral-200 dark:border-neutral-700">
-                <div className="flex justify-between items-center text-sm">
-                  <span className="font-medium text-neutral-800 dark:text-neutral-200">
-                    {statusLabel(m.status)}
-                  </span>
-                  <span className="text-neutral-500">
-                    {m?.mode === "dms" ? "Dead-man switch" : `ата: ${fmtDate(m.delivery_at)}`}
-                  </span>
-                </div>
+              <h3 className="text-lg font-bold mb-2">Для: {m.recipient_email}</h3>
+              <p className="text-sm text-gray-600 mb-4 line-clamp-3">{m.content_text}</p>
+              <div className="text-sm text-gray-500">
+                <p><span className="font-medium text-gray-700">Режим:</span> {m.mode === 'dms' ? 'Немедленно' : 'Запланировано'}</p>
+                <p><span className="font-medium text-gray-700">Дата доставки:</span> {formatRU(m.delivery_at)}</p>
               </div>
             </div>
           ))}
         </div>
       )}
-    </main>
+    </div>
   );
 }
-

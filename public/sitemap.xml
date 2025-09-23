@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.echoproject.space/</loc></url>
-  <url><loc>https://www.echoproject.space/cabinet</loc></url>
+  <url><loc>https://www.echoproject.space/messages</loc></url>
+  <url><loc>https://www.echoproject.space/messages/new</loc></url>
+  <url><loc>https://www.echoproject.space/faq</loc></url>
+  <url><loc>https://www.echoproject.space/contacts</loc></url>
 </urlset>

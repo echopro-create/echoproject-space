@@ -1,33 +1,39 @@
 {
-    "name":  "echo-site",
-    "private":  true,
-    "version":  "0.1.1",
-    "scripts":  {
-                    "dev":  "next dev",
-                    "build":  "next build",
-                    "start":  "next start",
-                    "lint":  "next lint"
-                },
-    "dependencies":  {
-                         "@supabase/supabase-js":  "^2.57.4",
-                         "basic-ftp":  "^5.0.5",
-                         "clsx":  "^2.1.1",
-                         "lucide-react":  "^0.453.0",
-                         "next":  "^15.5.3",
-                         "next-themes":  "^0.4.6",
-                         "react":  "18.3.1",
-                         "react-dom":  "18.3.1",
-                         "zod":  "3.23.8"
-                     },
-    "devDependencies":  {
-                            "@tailwindcss/line-clamp":  "^0.4.4",
-                            "@types/node":  "22.5.4",
-                            "@types/react":  "18.3.5",
-                            "autoprefixer":  "^10.4.21",
-                            "eslint":  "8.57.1",
-                            "eslint-config-next":  "14.2.7",
-                            "postcss":  "^8.5.6",
-                            "tailwindcss":  "^3.4.17",
-                            "typescript":  "5.6.2"
-                        }
+  "name": "echo-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/ssr": "^0.5.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "jose": "^5.9.2",
+    "next": "15.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "postcss": "^8.4.38",
+    "prettier": "^3.3.0",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.4.5"
+  }
 }

@@ -1,8 +1,0 @@
-﻿export default function MessagesPage(){
-  return (
-    <main className="p-8">
-      <h1 className="text-2xl font-semibold">Сообщения</h1>
-      <p className="text-neutral-500 mt-2">аздел в разработке. Скоро вернём.</p>
-    </main>
-  );
-}
