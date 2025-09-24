@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { getSupabaseBrowserClient } from "@/lib/supabase.client";
@@ -25,9 +25,9 @@ export default function Page() {
 
   return (
     <main className="max-w-md mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-4">ход по e-mail</h1>
+      <h1 className="text-2xl font-semibold mb-4">С…РѕРґ РїРѕ e-mail</h1>
       {sent ? (
-        <p>исьмо отправлено. роверь почту и перейди по ссылке.</p>
+        <p>РёСЃСЊРјРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ. СЂРѕРІРµСЂСЊ РїРѕС‡С‚Сѓ Рё РїРµСЂРµР№РґРё РїРѕ СЃСЃС‹Р»РєРµ.</p>
       ) : (
         <form onSubmit={onSubmit} className="space-y-4">
           <input
@@ -39,13 +39,14 @@ export default function Page() {
             className="w-full border rounded px-3 py-2"
           />
           <button type="submit" className="w-full border rounded px-3 py-2">
-            тправить ссылку
+            С‚РїСЂР°РІРёС‚СЊ СЃСЃС‹Р»РєСѓ
           </button>
         </form>
       )}
     </main>
   );
 }
+
 
 
 

@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "echo-site",
   "private": true,
   "version": "0.1.0",
@@ -38,3 +38,4 @@
     "typescript": "^5.4.5"
   }
 }
+

@@ -1,26 +1,26 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Светлая тема по ТЗ */
+/* РЎРІРµС‚Р»Р°СЏ С‚РµРјР° РїРѕ РўР— */
 html, body { background: #ffffff; color: #111111; }
 a { @apply underline-offset-2; }
 
-/* Гард: по умолчанию первая буква скрыта только у .guarded */
+/* Р“Р°СЂРґ: РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїРµСЂРІР°СЏ Р±СѓРєРІР° СЃРєСЂС‹С‚Р° С‚РѕР»СЊРєРѕ Сѓ .guarded */
 .guarded::first-letter { opacity: 0 }
 
-/* Когда шрифты готовы/DOM стабилен — показываем мгновенно */
+/* РљРѕРіРґР° С€СЂРёС„С‚С‹ РіРѕС‚РѕРІС‹/DOM СЃС‚Р°Р±РёР»РµРЅ вЂ” РїРѕРєР°Р·С‹РІР°РµРј РјРіРЅРѕРІРµРЅРЅРѕ */
 .fonts-ready .guarded::first-letter {
   opacity: 1;
   transition: opacity .001s linear;
 }
 
-/* На всякий: без анимаций — тоже мгновенно */
+/* РќР° РІСЃСЏРєРёР№: Р±РµР· Р°РЅРёРјР°С†РёР№ вЂ” С‚РѕР¶Рµ РјРіРЅРѕРІРµРЅРЅРѕ */
 @media (prefers-reduced-motion: reduce) {
   .fonts-ready .guarded::first-letter { transition: none }
 }
 
-/* УБИВАЕМ старый глобальный хак, если где-то всплывёт */
+/* РЈР‘РР’РђР•Рњ СЃС‚Р°СЂС‹Р№ РіР»РѕР±Р°Р»СЊРЅС‹Р№ С…Р°Рє, РµСЃР»Рё РіРґРµ-С‚Рѕ РІСЃРїР»С‹РІС‘С‚ */
 :where(h1,h2,h3,h4,h5,h6,p,li,blockquote)::first-letter{
   visibility:visible !important;
   opacity:1 !important;
@@ -31,3 +31,4 @@ a { @apply underline-offset-2; }
   mask-image:none !important;
   text-indent:0 !important;
 }
+
