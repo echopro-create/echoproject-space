@@ -1,2 +1,10 @@
+﻿# dependencies
 node_modules/
 
+# next build artifacts
+.next/
+out/
+
+# env
+.env
+.env.*
