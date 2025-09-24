@@ -1,2 +1,1 @@
 ﻿* text=auto eol=lf
-*.{ts,tsx,js,jsx,css,scss,md,mdx,json} text eol=lf
