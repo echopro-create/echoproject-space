@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "check": "npm run lint "scripts": {"scripts": { npm run build "scripts": {"scripts": { npm run start",
     "dev": "next dev",
     "build": "npm run lint && next build",
     "start": "next start",
