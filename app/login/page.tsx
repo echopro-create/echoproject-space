@@ -17,7 +17,7 @@ export default function Page() {
 
     await supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: \\/auth/callback\ },
+      options: { emailRedirectTo: `${origin}/auth/callback` },
     });
 
     setSent(true);
