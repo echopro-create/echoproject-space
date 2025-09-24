@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
-  const cookieStore = await cookies(); // ???????????????????????? await
+  const cookieStore = await cookies(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ await
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -32,7 +32,6 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.redirect(new URL("/messages/new", url.origin));
 }
-
 
 
 
