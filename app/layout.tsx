@@ -5,8 +5,8 @@ import Footer from '../components/Footer';
 import AnonInit from './AnonInit';
 
 export const metadata: Metadata = {
-  title: 'ECHO - ��������, ������� ��������� ���',
-  description: '���������� ������ ������ � ����������� ��, ����� ����� �����.',
+  title: 'ECHO - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ',
+  description: 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.',
   metadataBase: new URL('https://www.echoproject.space'),
   openGraph: {
     type: 'website',
