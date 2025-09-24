@@ -1,21 +1,32 @@
-﻿import { redirect } from "next/navigation";
-import { createSupabaseServerClient } from "@/lib/supabase.server";
+import Link from "next/link";
 
-export default async function MessagesPage() {
-  const supabase = await createSupabaseServerClient(); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
-  const { data: { session } } = await supabase.auth.getSession();
-  const user = session?.user;
-  if (!user) redirect("/login");
-
+export default function MessagesPage() {
   return (
-    <main className="p-6">
-      <h1 className="text-xl font-semibold mb-4">пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ</h1>
-      <p>пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ: <b>{user.email}</b></p>
-    </main>
+    <section className="container" aria-labelledby="messages-title">
+      <div className="page-header">
+        <h1 id="messages-title" className="page-title">Послания</h1>
+        <Link href="/messages/new" className="button button--primary">Создать послание</Link>
+      </div>
+
+      <div className="list" role="list">
+        {/* Заглушки карточек  позже заменим на реальные данные */}
+        <article className="card" role="listitem">
+          <h3 className="card-title">Письмо сыну</h3>
+          <p className="card-meta">Отправка: 15.11.2025  Получатели: 1</p>
+        </article>
+        <article className="card" role="listitem">
+          <h3 className="card-title">Важные инструкции</h3>
+          <p className="card-meta">По событию: подтверждение нотариуса  Получатели: 2</p>
+        </article>
+      </div>
+
+      {/* Пустое состояние на будущее:
+      <div className="empty">
+        <h3>Пока нет посланий</h3>
+        <p>Создайте первое, чтобы важные слова не потерялись.</p>
+        <p><Link href="/messages/new" className="button button--primary">Создать послание</Link></p>
+      </div>
+      */}
+    </section>
   );
 }
-
-
-
-
-

@@ -1,0 +1,39 @@
+import "./../styles/styles.css";
+import type { Metadata } from "next";
+import MobileNav from "./components/MobileNav";
+
+export const metadata: Metadata = {
+  title: "ECHO  Послания после жизни",
+  description:
+    "Запишите важные слова  ECHO передаст их тем, кто дорог, в нужный момент: по дате, по событию или после ухода.",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  themeColor: "#FFFFFF",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="ru">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>
+        <header className="header">
+          <div className="container">
+            <a href="/" className="logo">ECHO</a>
+          </div>
+        </header>
+
+        <main>{children}</main>
+
+        <MobileNav />
+        <footer className="footer" />
+      </body>
+    </html>
+  );
+}

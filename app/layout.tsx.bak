@@ -1,0 +1,37 @@
+import "./globals.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.echoproject.space"),
+  title: "ECHO — Послания после жизни",
+  description:
+    "Запишите важные слова и отправьте их автоматически тогда, когда это действительно нужно.",
+  openGraph: {
+    title: "ECHO — Послания после жизни",
+    description:
+      "Запишите важные слова и отправьте их автоматически тогда, когда это действительно нужно.",
+    url: "https://www.echoproject.space",
+    type: "website",
+    locale: "ru_RU",
+  },
+  alternates: { canonical: "https://www.echoproject.space" },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="ru">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(){var d=document,go=function(){d.documentElement.classList.add('fonts-ready')};
+              if(d.fonts&&d.fonts.ready){d.fonts.ready.then(go)}else{requestAnimationFrame(()=>requestAnimationFrame(go));setTimeout(go,1200)}
+            }();`,
+          }}
+        />
+      </head>
+      <body className="antialiased">{children}</body>
+    </html>
+  );
+}

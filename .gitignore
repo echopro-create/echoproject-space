@@ -1,11 +1,15 @@
-﻿# dependencies
+﻿# Node / Next
 node_modules/
-
-# next build artifacts
 .next/
 out/
+dist/
+.vercel/
+*.log
+npm-debug.log*
+.yarn/cache
+.pnpm-store/
 
-# env
+# Env
 .env
-.env.*
-.vercel
+.env.local
+.env.*.local

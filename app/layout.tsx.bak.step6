@@ -1,0 +1,39 @@
+import "./../styles/styles.css";
+import type { Metadata } from "next";
+import MobileNav from "./components/MobileNav";
+
+export const metadata: Metadata = {
+  title: "ECHO  РџРѕСЃР»Р°РЅРёСЏ РїРѕСЃР»Рµ Р¶РёР·РЅРё",
+  description:
+    "Р—Р°РїРёС€РёС‚Рµ РІР°Р¶РЅС‹Рµ СЃР»РѕРІР°  ECHO РїРµСЂРµРґР°СЃС‚ РёС… С‚РµРј, РєС‚Рѕ РґРѕСЂРѕРі, РІ РЅСѓР¶РЅС‹Р№ РјРѕРјРµРЅС‚: РїРѕ РґР°С‚Рµ, РїРѕ СЃРѕР±С‹С‚РёСЋ РёР»Рё РїРѕСЃР»Рµ СѓС…РѕРґР°.",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  themeColor: "#FFFFFF",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="ru">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>
+        <header className="header">
+          <div className="container">
+            <Link href="/" className="logo">ECHO</Link>
+          </div>
+        </header>
+
+        <main>{children}</main>
+
+        <MobileNav />
+        <footer className="footer" />
+      </body>
+    </html>
+  );
+}

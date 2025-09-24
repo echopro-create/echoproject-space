@@ -1,0 +1,280 @@
+/* ===============================
+   styles/styles.css
+   Шаг 1  глобальные стили
+   =============================== */
+
+/* Переменные (мобильные базовые) */
+:root {
+  /* Цвета */
+  --color-white: #FFFFFF;
+  --color-text-primary: #1C1C1E;
+  --color-text-secondary: #6E6E73;
+  --color-accent: #007AFF;
+  --color-divider: #E5E5EA;
+  --color-success: #34C759;
+  --color-error: #FF3B30;
+
+  /* Типографика */
+  --font-display: "SF Pro Display", -apple-system, system-ui, Segoe UI, Inter, sans-serif;
+  --font-text: "SF Pro Text", -apple-system, system-ui, Segoe UI, Inter, sans-serif;
+
+  --font-size-h1-mobile: 40px;
+  --font-size-h2-mobile: 28px;
+  --font-size-h3-mobile: 20px;
+  --font-size-body: 16px;
+  --font-size-caption: 14px;
+
+  /* Отступы */
+  --spacing-unit: 8px;
+  --section-spacing-mobile: 64px;
+
+  /* Фолбэки десктопных размеров (чтобы clamp не падал на мобиле) */
+  --font-size-h1-desktop: 56px;
+  --font-size-h2-desktop: 32px;
+  --font-size-h3-desktop: 24px;
+  --section-spacing-desktop: 96px;
+
+  /* Усиленный вторичный (лучше контраст) */
+  --color-text-secondary-strong: #5F5F62;
+}
+
+/* Десктоп: при желании переопределяй */
+@media (min-width: 1024px) {
+  :root {
+    --font-size-body: 18px;
+    --section-spacing-desktop: 96px;
+  }
+}
+
+/* ===== Сбросы и база ===== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-text);
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* Контейнер */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== Заголовки и масштаб ===== */
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  /* плавный масштаб от мобайла к десктопу */
+  font-size: clamp(32px, 6vw, var(--font-size-h1-desktop, 56px));
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(20px, 4.5vw, var(--font-size-h2-desktop, 32px));
+}
+.hero-subtitle { color: var(--color-text-secondary-strong); font-size: var(--font-size-body); }
+
+/* ===== Секции ===== */
+section { padding: var(--section-spacing-mobile) 0; }
+@media (min-width: 1024px) {
+  section { padding: var(--section-spacing-desktop) 0; }
+}
+
+/* ===== Кнопки ===== */
+.button {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, filter .2s ease;
+  min-height: 44px; /* iOS hit area */
+}
+.button--primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+}
+.button--primary:hover { filter: brightness(0.95); }
+.button--secondary {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-divider);
+}
+.button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* ===== Хиро ===== */
+.hero-section { text-align: center; padding-top: var(--section-spacing-mobile); }
+.hero-actions { margin-top: 32px; }
+.hero-actions .button:first-child { margin-bottom: 12px; }
+@media (min-width: 1024px) {
+  .hero-actions { display: flex; justify-content: center; gap: 16px; }
+  .button { width: auto; }
+}
+
+/* ===== Header (пока простой) ===== */
+.header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.9); backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid var(--color-divider); }
+.header .container { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.logo { font-family: var(--font-display); font-weight: 800; font-size: 18px; }
+.menu-toggle { display: none; } /* логика позже */
+
+/* ===== Шаги / Безопасность ===== */
+.steps-list, .security-list { display: grid; gap: 16px; }
+.step-item, .security-item { text-align: center; }
+.step-title, .security-title { font-size: var(--font-size-h3-mobile); font-family: var(--font-display); margin: 8px 0 4px; }
+.step-description { color: var(--color-text-secondary); font-size: var(--font-size-body); }
+
+/* ===== Мобильная нижняя навигация (таб-бар) ===== */
+.mobile-nav {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 72px; /* выше  удобнее нажимать */
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-divider);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  backdrop-filter: saturate(180%) blur(12px);
+  z-index: 50;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 56px;
+  padding: 6px 8px;         /* в сумме с высотой даёт >=44px */
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.nav-item img { width: 22px; height: 22px; opacity: .6; }
+.nav-item.active { color: var(--color-accent); }
+.nav-item.active img { opacity: 1; }
+
+/* Чтобы контент не прятался под таб-баром */
+main { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+
+/* ===== Доступность / анимации ===== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Footer-заглушка */
+.footer { height: 1px; }/* =========================================
+   Шаг 5  десктоп-сетки и полировка навигации
+   ========================================= */
+
+/* Гриды на десктопе */
+@media (min-width: 1024px) {
+  .steps-list,
+  .security-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+/* Немного вытягиваем hero на десктопе */
+@media (min-width: 1024px) {
+  .hero-section { padding-top: var(--section-spacing-desktop); }
+}
+
+/* Таб-бар: скрываем на десктопе */
+@media (min-width: 1024px) {
+  .mobile-nav { display: none; }
+}
+
+/* Таб-бар: визуальный акцент для CTA-кнопки */
+.nav-item { position: relative; } /* для псевдоэлементов */
+.nav-item--cta {
+  transform: translateY(-6px);
+}
+.nav-item--cta::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(0, 122, 255, 0.08);
+  z-index: -1;
+}
+.nav-item--cta img {
+  width: 28px;
+  height: 28px;
+  opacity: 1; /* CTA всегда заметен */
+}
+
+/* Чуть чётче вторичный текст на белом фоне */
+.step-description { color: var(--color-text-secondary-strong); }
+/* =========================================
+   Шаг 6  микро-UX: якоря, skip-link, фокусы
+   ========================================= */
+
+/* Плавные якоря (и уважение reduced motion) */
+html { scroll-behavior: smooth; scroll-padding-top: 72px; } /* 56px header + небольшой зазор */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Секции, к которым ведут якоря, не прячутся под шапкой */
+section[id] { scroll-margin-top: 80px; }
+
+/* Подсветка активной секции при переходе по якорю */
+section:target .section-title {
+  color: var(--color-accent);
+}
+
+/* Skip to content  доступность с клавиатуры */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 10px 14px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-radius: 10px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 12px;
+}
+
+/* Улучшаем видимость фокуса для ссылок и таб-бара */
+a:focus-visible, .nav-item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* Активность ссылок в hero-actions при :target (косвенно) */
+:target ~ .container .hero-actions a[href^="#"],
+:target .hero-actions a[href^="#"] {
+  /* остаёмся нейтральными; подсветку уже делаем заголовком */
+}
+
+/* Небольшие hover-состояния для вторичных кнопок */
+.button--secondary:hover {
+  background-color: rgba(0,0,0,0.04);
+  border-color: var(--color-divider);
+}
