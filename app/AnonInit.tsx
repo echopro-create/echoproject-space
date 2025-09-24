@@ -9,7 +9,7 @@ export default function AnonInit() {
       const { data } = await supabase.auth.getSession();
       if (!data.session) {
         await supabase.auth.signInAnonymously();
-        console.log('нонимная сессия создана');
+        console.log('РЅРѕРЅРёРјРЅР°СЏ СЃРµСЃСЃРёСЏ СЃРѕР·РґР°РЅР°');
       }
     })();
   }, []);
