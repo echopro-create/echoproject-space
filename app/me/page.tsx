@@ -25,7 +25,7 @@ export default function Page() {
   if (loading) return <main className="max-w-md mx-auto p-6">агрузка…</main>;
   if (!user) return <main className="max-w-md mx-auto p-6">ы не авторизованы</main>;
 
-  const email = user.email ?? user.user_metadata?.email ?? "-";
+  const email = user.email ?? user.user_metadata?.email ?? "—";
 
   return (
     <main className="max-w-md mx-auto p-6 space-y-4">
