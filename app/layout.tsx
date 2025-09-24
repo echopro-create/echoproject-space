@@ -1,6 +1,11 @@
-import "./../styles/styles.css";
-import type { Metadata } from "next";
-import MobileNav from "./components/MobileNav";
+﻿import MobileNav from './components/MobileNav';
+import Link from 'next/link';
+
+const inter = Inter({ subsets: ['latin','cyrillic'], display: 'swap' });
+    param($m)
+    $imports = $m.Value
+    return $imports + "`r`n" + $interDecl + "`r`n"
+  
 
 export const metadata: Metadata = {
   title: "ECHO  Р СџР С•РЎРѓР В»Р В°Р Р…Р С‘РЎРЏ Р С—Р С•РЎРѓР В»Р Вµ Р В¶Р С‘Р В·Р Р…Р С‘",
@@ -12,24 +17,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <html lang="ru" className="light">
+      <head><meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body>`r`n        <a href="#main" className="skip-link">Перейти к содержимому</a>
+      <body className="{${inter.className}}">`r`n        <a href="#main" className="skip-link">Перейти к содержимому</a>
         <header className="header">
           <div className="container">
             <Link href="/" className="logo">ECHO</Link>
           </div>
         </header>
 
-        <main id="main" id="main">{children}</main>
+        <main>{children}</main>
 
         <MobileNav />
         <footer className="footer" />
@@ -37,3 +35,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+
