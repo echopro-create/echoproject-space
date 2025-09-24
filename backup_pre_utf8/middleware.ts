@@ -21,7 +21,7 @@ export async function middleware(req: NextRequest) {
     }
   );
 
-  // РЎРёРЅС…СЂРѕРЅРёР·РёСЂСѓРµРј РєСѓРєРё СЃРµСЃСЃРёРё (РІР°Р¶РЅРѕ РґР»СЏ Edge middleware)
+  // Синхронизируем куки сессии (важно для Edge middleware)
   await supabase.auth.getUser();
 
   return res;

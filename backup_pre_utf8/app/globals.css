@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Р±СЂР°Р»Рё РіР»РѕР±Р°Р»СЊРЅС‹Р№ С…Р°Рє ::first-letter вЂ” РѕРЅ РїСЂСЏС‚Р°Р» РїРµСЂРІСѓСЋ Р±СѓРєРІСѓ РІ Р·Р°РіРѕР»РѕРІРєР°С…/С‚РµРєСЃС‚Рµ */
+/* брали глобальный хак ::first-letter — он прятал первую букву в заголовках/тексте */
 
 html, body { background: #ffffff; color: #111111; }
 a { @apply underline-offset-2; }
