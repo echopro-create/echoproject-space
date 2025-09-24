@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { createBrowserClient } from '@supabase/ssr';
 
@@ -12,3 +12,5 @@ export function getSupabaseBrowserClient() {
   );
   return _client;
 }
+
+

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useEffect } from 'react';
 import { getSupabaseBrowserClient } from '../lib/supabase.client';
 
@@ -9,11 +9,13 @@ export default function AnonInit() {
       const { data } = await supabase.auth.getSession();
       if (!data.session) {
         await supabase.auth.signInAnonymously();
-        console.log('РЅРѕРЅРёРјРЅР°СЏ СЃРµСЃСЃРёСЏ СЃРѕР·РґР°РЅР°');
+        console.log('нонимная сессия создана');
       }
     })();
   }, []);
 
   return null;
 }
+
+
 

@@ -1,4 +1,4 @@
-п»їimport { type NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 
 export async function middleware(req: NextRequest) {
@@ -21,7 +21,7 @@ export async function middleware(req: NextRequest) {
     }
   );
 
-  // РЎРёРЅС…СЂРѕРЅРёР·РёСЂСѓРµРј РєСѓРєРё СЃРµСЃСЃРёРё (РІР°Р¶РЅРѕ РґР»СЏ Edge middleware)
+  // Синхронизируем куки сессии (важно для Edge middleware)
   await supabase.auth.getUser();
 
   return res;
@@ -32,3 +32,4 @@ export const config = {
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };
+
