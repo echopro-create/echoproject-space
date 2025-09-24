@@ -1,11 +1,12 @@
-Ôªøimport { NextRequest, NextResponse } from "next/server";
+export const runtime = 'nodejs';
+import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
-  const cookieStore = await cookies(); // –¥–æ–±–∞–≤–∏–ª–∏ await
+  const cookieStore = await cookies(); // ‰Ó·‡‚ËÎË await
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

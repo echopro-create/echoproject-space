@@ -1,12 +1,12 @@
-п»їimport type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AnonInit from './AnonInit';
 
 export const metadata: Metadata = {
-  title: 'ECHO - РџРѕСЃР»Р°РЅРёСЏ, РєРѕС‚РѕСЂС‹Рµ РїРµСЂРµР¶РёРІСѓС‚ РІР°СЃ',
-  description: 'РЎРѕС…СЂР°РЅСЏР№С‚Рµ РІР°Р¶РЅС‹Рµ РїРёСЃСЊРјР° Рё РїРµСЂРµРґР°РІР°Р№С‚Рµ РёС…, РєРѕРіРґР° РїСЂРёРґС‘С‚ РІСЂРµРјСЏ.',
+  title: 'ECHO - Послания, которые переживут вас',
+  description: 'Сохраняйте важные письма и передавайте их, когда придёт время.',
   metadataBase: new URL('https://www.echoproject.space'),
   openGraph: {
     type: 'website',

@@ -1,11 +1,11 @@
 ﻿"use client";
 import { useState } from "react";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createClientComponentClient } from "@supabase/ssr";
 
 export default function Page() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
-  const supabase = createClientComponentClient();
+  const supabase = getSupabaseBrowserClient();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -39,3 +39,4 @@ export default function Page() {
     </main>
   );
 }
+

@@ -1,33 +1,34 @@
-﻿import { createServerClient } from "@supabase/ssr";
-import { NextRequest, NextResponse } from "next/server";
+﻿import { type NextRequest, NextResponse } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
 
 export async function middleware(req: NextRequest) {
-  const url = new URL(req.url);
+  const res = NextResponse.next({ request: { headers: req.headers } });
 
-  // 1) сли пришли по магик-ссылке типа /?code=..., редиректим на /auth/callback
-  if (url.searchParams.has("code")) {
-    const to = new URL("/auth/callback", url.origin);
-    to.search = url.search; // переносим все параметры (?code=..., etc.)
-    return NextResponse.redirect(to);
-  }
-
-  // 2) наче — обычное обновление auth-куков
-  const res = NextResponse.next();
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        get: (name: string) => req.cookies.get(name)?.value,
-        set: (name: string, value: string, options: any) => res.cookies.set({ name, value, ...options }),
-        remove: (name: string, options: any) => res.cookies.set({ name, value: "", ...options, maxAge: 0 }),
+        getAll() {
+          return req.cookies.getAll();
+        },
+        setAll(cookies) {
+          cookies.forEach(({ name, value, options }) => {
+            res.cookies.set(name, value, options);
+          });
+        },
       },
     }
   );
+
+  // Синхронизируем куки сессии (важно для Edge middleware)
   await supabase.auth.getUser();
+
   return res;
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|sw.js).*)"],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
 };

@@ -1,6 +1,6 @@
-п»ї"use client";
+"use client";
 import { useEffect, useState } from "react";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createClientComponentClient } from "@supabase/ssr";
 
 export default function Page() {
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ export default function Page() {
     run();
   }, []);
 
-  if (loading) return <main className="p-6">СЂРѕРІРµСЂСЏРµРј СЃРµСЃСЃРёСЋвЂ¦</main>;
-  if (!email) return <main className="p-6">вќЊ Рµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ</main>;
-  return <main className="p-6">вњ… РІС‚РѕСЂРёР·РѕРІР°РЅ: <b>{email}</b></main>;
+  if (loading) return <main className="p-6">роверяем сессию…</main>;
+  if (!email) return <main className="p-6">? е авторизован</main>;
+  return <main className="p-6">? вторизован: <b>{email}</b></main>;
 }
