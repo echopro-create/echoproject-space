@@ -1,10 +1,10 @@
-﻿'use client';
+'use client';
 import { useState } from 'react';
 import { z } from 'zod';
 
 const schema = z.object({
-  recipient_email: z.string().email('Р СњР ВµР Р†Р ВµРЎР‚Р Р…РЎвЂ№Р в„– email'),
-  content_text: z.string().min(1, 'Р вЂ™Р Р†Р ВµР Т‘Р С‘РЎвЂљР Вµ РЎвЂљР ВµР С”РЎРѓРЎвЂљ Р С—Р С•РЎРѓР В»Р В°Р Р…Р С‘РЎРЏ').max(5000, 'Р РЋР В»Р С‘РЎв‚¬Р С”Р С•Р С Р Т‘Р В»Р С‘Р Р…Р Р…Р С•Р Вµ Р С—Р С•РЎРѓР В»Р В°Р Р…Р С‘Р Вµ'),
+  recipient_email: z.string().email('РќРµРІРµСЂРЅС‹Р№ email'),
+  content_text: z.string().min(1, 'Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ РїРѕСЃР»Р°РЅРёСЏ').max(5000, 'РЎР»РёС€РєРѕРј РґР»РёРЅРЅРѕРµ РїРѕСЃР»Р°РЅРёРµ'),
   mode: z.enum(['dms','scheduled']).default('dms'),
   delivery_at: z.string().optional(),
   _hp: z.string().optional(), // honeypot
@@ -60,12 +60,12 @@ export default function NewMessagePage() {
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Р С›РЎв‚¬Р С‘Р В±Р С”Р В° РЎРѓР ВµРЎР‚Р Р†Р ВµРЎР‚Р В°');
+      if (!res.ok) throw new Error(data.error || 'РћС€РёР±РєР° СЃРµСЂРІРµСЂР°');
 
-      setMessage({ text: 'Р СџР С•РЎРѓР В»Р В°Р Р…Р С‘Р Вµ РЎС“РЎРѓР С—Р ВµРЎв‚¬Р Р…Р С• РЎРѓР С•РЎвЂ¦РЎР‚Р В°Р Р…Р ВµР Р…Р С•!', type: 'success' });
+      setMessage({ text: 'РџРѕСЃР»Р°РЅРёРµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅРѕ!', type: 'success' });
       setFormData({ recipient_email: '', content_text: '', mode: 'dms', delivery_at: '', _hp: '', passphrase: '' });
     } catch (err: any) {
-      setMessage({ text: err.message || 'Р СџРЎР‚Р С•Р С‘Р В·Р С•РЎв‚¬Р В»Р В° Р С•РЎв‚¬Р С‘Р В±Р С”Р В°', type: 'error' });
+      setMessage({ text: err.message || 'РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°', type: 'error' });
     } finally {
       setIsLoading(false);
     }
@@ -74,8 +74,8 @@ export default function NewMessagePage() {
   return (
     <div className="bg-white text-gray-900 font-sans min-h-screen flex flex-col">
       <section className="container mx-auto px-4 py-16 md:py-24 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4">Р СњР С•Р Р†Р С•Р Вµ Р С—Р С•РЎРѓР В»Р В°Р Р…Р С‘Р Вµ</h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12">Р СњР В°Р С—Р С‘РЎв‚¬Р С‘РЎвЂљР Вµ Р Р†Р В°Р В¶Р Р…Р С•Р Вµ РЎРѓР С•Р С•Р В±РЎвЂ°Р ВµР Р…Р С‘Р Вµ, Р С”Р С•РЎвЂљР С•РЎР‚Р С•Р Вµ Р В±РЎС“Р Т‘Р ВµРЎвЂљ Р С•РЎвЂљР С—РЎР‚Р В°Р Р†Р В»Р ВµР Р…Р С• Р Р† Р Р…РЎС“Р В¶Р Р…РЎвЂ№Р в„– Р СР С•Р СР ВµР Р…РЎвЂљ.</p>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4">РќРѕРІРѕРµ РїРѕСЃР»Р°РЅРёРµ</h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12">РќР°РїРёС€РёС‚Рµ РІР°Р¶РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ, РєРѕС‚РѕСЂРѕРµ Р±СѓРґРµС‚ РѕС‚РїСЂР°РІР»РµРЅРѕ РІ РЅСѓР¶РЅС‹Р№ РјРѕРјРµРЅС‚.</p>
       </section>
 
       <section className="container mx-auto px-4 pb-16 max-w-2xl">
@@ -83,35 +83,35 @@ export default function NewMessagePage() {
           <input type="text" name="_hp" value={formData._hp} onChange={handleChange} className="hidden" aria-hidden="true" tabIndex={-1} />
           
           <div>
-            <label htmlFor="recipient_email" className="block text-sm font-medium text-gray-700">Email Р С—Р С•Р В»РЎС“РЎвЂЎР В°РЎвЂљР ВµР В»РЎРЏ</label>
+            <label htmlFor="recipient_email" className="block text-sm font-medium text-gray-700">Email РїРѕР»СѓС‡Р°С‚РµР»СЏ</label>
             <input id="recipient_email" name="recipient_email" type="email" required value={formData.recipient_email}
               onChange={handleChange}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm" />
           </div>
 
           <div>
-            <label htmlFor="content_text" className="block text-sm font-medium text-gray-700">Р СћР ВµР С”РЎРѓРЎвЂљ Р С—Р С•РЎРѓР В»Р В°Р Р…Р С‘РЎРЏ</label>
+            <label htmlFor="content_text" className="block text-sm font-medium text-gray-700">РўРµРєСЃС‚ РїРѕСЃР»Р°РЅРёСЏ</label>
             <textarea id="content_text" name="content_text" rows={5} required value={formData.content_text}
               onChange={handleChange}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm"></textarea>
           </div>
 
           <div>
-            <label htmlFor="mode" className="block text-sm font-medium text-gray-700">Р В Р ВµР В¶Р С‘Р С Р С•РЎвЂљР С—РЎР‚Р В°Р Р†Р С”Р С‘</label>
+            <label htmlFor="mode" className="block text-sm font-medium text-gray-700">Р РµР¶РёРј РѕС‚РїСЂР°РІРєРё</label>
             <select id="mode" name="mode" value={formData.mode} onChange={handleChange}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm">
-              <option value="dms">Р СњР ВµР СР ВµР Т‘Р В»Р ВµР Р…Р Р…Р С• (Р С”Р В°Р С” РЎвЂљР С•Р В»РЎРЉР С”Р С• Р Р†Р С•Р В·Р СР С•Р В¶Р Р…Р С•)</option>
-              <option value="scheduled">Р вЂ”Р В°Р С—Р В»Р В°Р Р…Р С‘РЎР‚Р С•Р Р†Р В°Р Р…Р С•</option>
+              <option value="dms">РќРµРјРµРґР»РµРЅРЅРѕ (РєР°Рє С‚РѕР»СЊРєРѕ РІРѕР·РјРѕР¶РЅРѕ)</option>
+              <option value="scheduled">Р—Р°РїР»Р°РЅРёСЂРѕРІР°РЅРѕ</option>
             </select>
           </div>
 
           {formData.mode === 'scheduled' && (
             <div>
-              <label htmlFor="delivery_at" className="block text-sm font-medium text-gray-700">Р вЂќР В°РЎвЂљР В° Р С‘ Р Р†РЎР‚Р ВµР СРЎРЏ Р Т‘Р С•РЎРѓРЎвЂљР В°Р Р†Р С”Р С‘</label>
+              <label htmlFor="delivery_at" className="block text-sm font-medium text-gray-700">Р”Р°С‚Р° Рё РІСЂРµРјСЏ РґРѕСЃС‚Р°РІРєРё</label>
               <input id="delivery_at" name="delivery_at" type="datetime-local" required value={formData.delivery_at}
                 onChange={handleChange}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 sm:text-sm" />
-              <p className="mt-1 text-xs text-gray-500">Р вЂРЎС“Р Т‘Р ВµРЎвЂљ РЎРѓР С•РЎвЂ¦РЎР‚Р В°Р Р…Р ВµР Р…Р С• Р Р† UTC, Р В»Р С•Р С”Р В°Р В»РЎРЉ: Europe/Oslo</p>
+              <p className="mt-1 text-xs text-gray-500">Р‘СѓРґРµС‚ СЃРѕС…СЂР°РЅРµРЅРѕ РІ UTC, Р»РѕРєР°Р»СЊ: Europe/Oslo</p>
             </div>
           )}
 
@@ -123,14 +123,13 @@ export default function NewMessagePage() {
 
           <button type="submit" disabled={isLoading}
             className={`w-full flex justify-center py-3 px-6 border border-transparent rounded-full shadow-sm text-base font-medium text-white transition-colors duration-200 ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gray-900 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900'}`}>
-            {isLoading ? 'Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…Р ВµР Р…Р С‘Р Вµ...' : 'Р С›РЎвЂљР С—РЎР‚Р В°Р Р†Р С‘РЎвЂљРЎРЉ Р С—Р С•РЎРѓР В»Р В°Р Р…Р С‘Р Вµ'}
+            {isLoading ? 'РЎРѕС…СЂР°РЅРµРЅРёРµ...' : 'РћС‚РїСЂР°РІРёС‚СЊ РїРѕСЃР»Р°РЅРёРµ'}
           </button>
         </form>
       </section>
     </div>
   );
 }
-
 
 
 

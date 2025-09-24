@@ -1,4 +1,4 @@
-﻿export const runtime = 'nodejs';
+export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
-  const cookieStore = await cookies(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ await
+  const cookieStore = await cookies(); // �������� await
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -32,6 +32,5 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.redirect(new URL("/messages/new", url.origin));
 }
-
 
 
