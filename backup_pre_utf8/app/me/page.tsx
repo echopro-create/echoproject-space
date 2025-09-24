@@ -17,16 +17,18 @@ export default function Page() {
     })();
   }, [supabase]);
 
-  if (loading) return <p>Р°РіСЂСѓР·РєР°...</p>;
-  if (!user) return <p>С‹ РЅРµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅС‹</p>;
+  if (loading) return <p>??????????????...</p>;
+  if (!user) return <p>?? ???? ????????????????????????</p>;
 
   return (
     <main className="max-w-md mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-4">РѕР№ РїСЂРѕС„РёР»СЊ</h1>
+      <h1 className="text-2xl font-semibold mb-4">???? ??????????????</h1>
       <pre className="bg-gray-100 p-4 rounded">{JSON.stringify(user, null, 2)}</pre>
     </main>
   );
 }
+
+
 
 
 
