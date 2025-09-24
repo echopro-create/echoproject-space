@@ -7,7 +7,7 @@ import MobileNav from "./components/MobileNav";
 const inter = Inter({ subsets: ["latin", "cyrillic"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "ECHO - Послания после жизни",
+  title: "ECHO  Послания после жизни",
   description: "Сообщения, которые дойдут тогда, когда это действительно важно.",
 };
 
