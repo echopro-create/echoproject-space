@@ -1,21 +1,34 @@
-import { NextResponse } from "next/server";
+export const runtime = 'nodejs';
+import { NextRequest, NextResponse } from "next/server";
+import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
-import { createSupabaseServerClient } from "@/lib/supabase.server";
 
-export const runtime = "nodejs";
-
-export async function GET(req: Request) {
+export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
-  const next = url.searchParams.get("redirect") ?? "/me";
+  const cookieStore = await cookies(); // �������� await
 
-  // пробрасываем cookies в клиент
-  const supabase = await createSupabaseServerClient();
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+        set(name: string, value: string, options: any) {
+          cookieStore.set(name, value, options);
+        },
+        remove(name: string, options: any) {
+          cookieStore.set(name, "", { ...options, maxAge: 0 });
+        },
+      },
+    }
+  );
 
   if (code) {
     await supabase.auth.exchangeCodeForSession(code);
   }
 
-  // редирект на профиль
-  return NextResponse.redirect(new URL(next, url.origin));
+  return NextResponse.redirect(new URL("/messages/new", url.origin));
 }
