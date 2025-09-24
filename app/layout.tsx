@@ -1,15 +1,15 @@
-import "./globals.css";
+﻿import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.echoproject.space"),
-  title: "ECHO — послания после жизни",
+  title: "ECHO вЂ” РїРѕСЃР»Р°РЅРёСЏ РїРѕСЃР»Рµ Р¶РёР·РЅРё",
   description:
-    "апишите важные слова и отправьте их автоматически тогда, когда это действительно нужно.",
+    "Р°РїРёС€РёС‚Рµ РІР°Р¶РЅС‹Рµ СЃР»РѕРІР° Рё РѕС‚РїСЂР°РІСЊС‚Рµ РёС… Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё С‚РѕРіРґР°, РєРѕРіРґР° СЌС‚Рѕ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ РЅСѓР¶РЅРѕ.",
   openGraph: {
     title: "ECHO",
     description:
-      "апишите важные слова и отправьте их автоматически тогда, когда это действительно нужно.",
+      "Р°РїРёС€РёС‚Рµ РІР°Р¶РЅС‹Рµ СЃР»РѕРІР° Рё РѕС‚РїСЂР°РІСЊС‚Рµ РёС… Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё С‚РѕРіРґР°, РєРѕРіРґР° СЌС‚Рѕ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ РЅСѓР¶РЅРѕ.",
     url: "https://www.echoproject.space",
     type: "website",
     locale: "ru_RU",
@@ -27,5 +27,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
 
 
