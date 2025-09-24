@@ -16,7 +16,7 @@ export default function Page() {
     run();
   }, []);
 
-  if (loading) return <main className="p-6">роверяем сессию…</main>;
-  if (!email) return <main className="p-6">? е авторизован</main>;
-  return <main className="p-6">? вторизован: <b>{email}</b></main>;
+  if (loading) return <main className="p-6">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</main>;
+  if (!email) return <main className="p-6">? пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</main>;
+  return <main className="p-6">? пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: <b>{email}</b></main>;
 }
