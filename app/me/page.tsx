@@ -12,7 +12,11 @@ export default function Page() {
   useEffect(() => {
     (async () => {
       const { data } = await supabase.auth.getUser();
-      setUser(data?.user ?? null);
+      if (!data?.user) {
+        window.location.href = "/login";
+        return;
+      }
+      setUser(data.user);
       setLoading(false);
     })();
   }, [supabase]);
@@ -23,16 +27,13 @@ export default function Page() {
   }
 
   if (loading) return <main className="max-w-md mx-auto p-6">агрузка…</main>;
-  if (!user) return <main className="max-w-md mx-auto p-6">ы не авторизованы</main>;
-
-  const email = user.email ?? user.user_metadata?.email ?? "—";
 
   return (
     <main className="max-w-md mx-auto p-6 space-y-4">
       <h1 className="text-2xl font-semibold">ой профиль</h1>
       <div className="rounded-2xl border p-4">
         <div className="text-sm text-gray-500">Email</div>
-        <div className="text-lg">{email}</div>
+        <div className="text-lg">{user?.email}</div>
       </div>
       <button
         onClick={signOut}
@@ -40,10 +41,6 @@ export default function Page() {
       >
         ыйти
       </button>
-      <details className="rounded-2xl border p-4">
-        <summary className="cursor-pointer">оказать JSON</summary>
-        <pre className="mt-2 text-xs overflow-auto">{JSON.stringify(user, null, 2)}</pre>
-      </details>
     </main>
   );
 }
