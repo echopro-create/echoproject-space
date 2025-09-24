@@ -1,22 +1,29 @@
-"use client";
+﻿"use client";
+
 import { useEffect, useState } from "react";
-import { createClientComponentClient } from "@supabase/ssr";
+import { getSupabaseBrowserClient } from "@/lib/supabase.client";
 
 export default function Page() {
   const [loading, setLoading] = useState(true);
-  const [email, setEmail] = useState<string|null>(null);
+  const [user, setUser] = useState<any>(null);
+  const supabase = getSupabaseBrowserClient();
 
   useEffect(() => {
-    const run = async () => {
-      const supabase = createClientComponentClient();
-      const { data: { user } } = await supabase.auth.getUser();
-      setEmail(user?.email ?? null);
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user ?? null);
       setLoading(false);
-    };
-    run();
-  }, []);
+    });
+  }, [supabase]);
 
-  if (loading) return <main className="p-6">�������� �������</main>;
-  if (!email) return <main className="p-6">? � �����������</main>;
-  return <main className="p-6">? ����������: <b>{email}</b></main>;
+  if (loading) return <p>агрузка...</p>;
+  if (!user) return <p>ы не авторизованы</p>;
+
+  return (
+    <main className="max-w-md mx-auto p-6">
+      <h1 className="text-2xl font-semibold mb-4">ой профиль</h1>
+      <pre className="bg-gray-100 p-4 rounded">
+        {JSON.stringify(user, null, 2)}
+      </pre>
+    </main>
+  );
 }
