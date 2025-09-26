@@ -1,5 +1,33 @@
 {
+  "name": "echo-ultimate-starter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "gen:tokens": "node scripts/gen-css-tokens.mjs",
+    "gen:tokens:watch": "node scripts/gen-css-tokens.mjs --watch",
+    "dev:watch": "concurrently -k -n TOKENS,DEV -c yellow,cyan \"npm:gen:tokens:watch\" \"npm:dev\""
+  },
   "dependencies": {
-    "tailwind-merge": "^3.3.1"
+    "@supabase/supabase-js": "^2.46.1",
+    "next": "15.5.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwind-merge": "^2.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.0.1",
+    "eslint": "^9.12.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
   }
 }
