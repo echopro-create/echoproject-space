@@ -3,6 +3,22 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: { optimizePackageImports: ["lucide-react"] },
   headers: async () => [
+    // HSTS для боевого домена (и www)
+    {
+      source: "/(.*)",
+      has: [{ type: "host", value: "echoproject.space" }],
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" }
+      ]
+    },
+    {
+      source: "/(.*)",
+      has: [{ type: "host", value: "www.echoproject.space" }],
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" }
+      ]
+    },
+    // Базовые заголовки для всех
     {
       source: "/(.*)",
       headers: [
@@ -13,4 +29,6 @@ const nextConfig = {
     }
   ]
 };
+
 export default nextConfig;
+
