@@ -3,3 +3,4 @@
 .vercel/output/
 dist/
 *.log
+.vercel
