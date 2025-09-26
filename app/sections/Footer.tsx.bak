@@ -1,9 +1,0 @@
-export function Footer() {
-  return (
-    <footer className="mt-16 border-t border-neutral-200">
-      <div className="container mx-auto px-4 py-8 text-sm text-neutral-600 lg:px-6">
-        В© {new Date().getFullYear()} ECHO. Р’СЃРµ РїСЂР°РІР° Р·Р°С‰РёС‰РµРЅС‹.
-      </div>
-    </footer>
-  );
-}
