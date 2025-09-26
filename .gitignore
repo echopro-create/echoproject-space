@@ -1,9 +1,5 @@
 ﻿node_modules/
 .next/
-out/
+.vercel/output/
+dist/
 *.log
-.DS_Store
-.env
-.env.*
-!.env.example
-.vercel
