@@ -1,11 +1,11 @@
 export const dynamic = "force-static";
 import StaticPage from "@/app/components/Static/StaticPage";
-export const metadata = { title: "О проекте — ECHO" };
+export const metadata = { title: "Безопасность — ECHO" };
 export default function Page(){
   return (
-    <StaticPage title="О проекте">
+    <StaticPage title="Безопасность">
       <p>Эта страница статическая, рендерится один раз при сборке и грузится мгновенно.</p>
-      <p>Здесь будет развернутый текст о разделе «О проекте» с аккуратной типографикой.</p>
+      <p>Здесь будет развернутый текст о разделе «Безопасность» с аккуратной типографикой.</p>
     </StaticPage>
   );
 }

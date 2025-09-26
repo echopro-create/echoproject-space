@@ -1,27 +1,18 @@
-import { Card } from './components/UI/Card';
-import { Stack } from './components/UI/Stack';
-
-export const dynamic = 'force-static';
-
+export const dynamic = "force-static";
+import Link from "next/link";
 export default function HomePage() {
   return (
-    <div className="mx-auto">
-      <Stack>
-        <h1 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
-          РџРѕСЃР»Р°РЅРёСЏ РїРѕСЃР»Рµ Р¶РёР·РЅРё, РєРѕРіРґР° СЃР»РѕРІР° РїРѕ-РЅР°СЃС‚РѕСЏС‰РµРјСѓ РЅСѓР¶РЅС‹
-        </h1>
-        <p className="leading-relaxed text-neutral-700">
-          ECHO РїРѕРјРѕРіР°РµС‚ РїРѕРґРіРѕС‚РѕРІРёС‚СЊ РїРѕСЃР»Р°РЅРёСЏ РґР»СЏ Р±Р»РёР·РєРёС… Рё РґРѕСЃС‚Р°РІРёС‚СЊ РёС… РІ РЅСѓР¶РЅС‹Р№ РјРѕРјРµРЅС‚.
-        </p>
-        <div className="aspect-[16/9] overflow-hidden rounded-xl">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/hero.jpg" alt="" width="1280" height="720" loading="eager" />
-        </div>
-        <Card>
-          <p className="text-neutral-800">Р­С‚Рѕ СЃС‚Р°СЂС‚РѕРІС‹Р№ РєР°СЂРєР°СЃ Р±РµР· С„РёС‡. РЎС‚Р°Р±РёР»СЊРЅР°СЏ СЃРµС‚РєР°, С‚РёРїРѕРіСЂР°С„РёРєР° Рё РјРµРґРёР°.</p>
-        </Card>
-      </Stack>
-    </div>
+    <section className="container py-16">
+      <h1 className="text-4xl md:text-5xl font-semibold leading-tight max-w-2xl">
+        Послания, которые переживут календарь
+      </h1>
+      <p className="mt-4 max-w-2xl text-lg text-muted">
+        Запишите текст, голос или видео. Мы доставим их адресатам в нужный день, даже если вас уже нельзя набрать.
+      </p>
+      <div className="mt-8 flex gap-3">
+        <Link href="/messages/new" className="px-5 py-3 rounded-2xl bg-black text-white">Оставить послание</Link>
+        <Link href="/how" className="px-5 py-3 rounded-2xl border border-border">Как это работает</Link>
+      </div>
+    </section>
   );
 }
-

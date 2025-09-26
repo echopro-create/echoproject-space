@@ -1,22 +1,14 @@
-export const dynamic = 'force-static';
-export const metadata = { title: 'Р’С…РѕРґ вЂ” ECHO' };
-
-export default function LoginPage() {
+export const dynamic = "force-static";
+export const metadata = { title: "Вход — ECHO" };
+export default function LoginPage(){
   return (
-    <div className="mx-auto max-w-xl">
-      <h1 className="mb-4 text-2xl font-semibold tracking-tight md:text-3xl">Р’С…РѕРґ</h1>
-      <form className="space-y-4">
-        <label className="block">
-          <span className="mb-1 block text-sm">Email</span>
-          <input className="h-control w-full rounded-xl border px-3" placeholder="you@example.com" />
-        </label>
-        <button type="button" className="h-control w-full rounded-xl border px-4 font-medium">
-          РџСЂРѕРґРѕР»Р¶РёС‚СЊ
-        </button>
+    <section className="container py-16 max-w-md">
+      <h1 className="text-2xl font-semibold mb-4">Войти</h1>
+      <p className="text-muted mb-4">Введите e-mail, мы пришлем код подтверждения.</p>
+      <form className="space-y-3">
+        <input type="email" required placeholder="you@example.com" className="w-full border border-border rounded-2xl p-3" />
+        <button className="w-full px-5 py-3 rounded-2xl bg-black text-white">Отправить код</button>
       </form>
-      <p className="mt-4 text-sm text-neutral-600">
-        Р­С‚Рѕ Р·Р°РіР»СѓС€РєР° С„РѕСЂРјС‹ РІС…РѕРґР°. Р‘РµР· Р±СЌРєРµРЅРґР°. Р’С‘СЂСЃС‚РєР° СѓСЃС‚РѕР№С‡РёРІР° Рё РїСЂРѕРІРµСЂРµРЅР° РЅР° СЌРєСЃС‚СЂРµРјР°Р»СЊРЅС‹Р№ РІРІРѕРґ.
-      </p>
-    </div>
+    </section>
   );
 }

@@ -1,37 +1,34 @@
 {
   "name": "echo-ultimate-starter",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
+    "predev": "npm run gen:tokens",
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run gen:tokens && next build",
     "start": "next start",
-    "lint": "next lint --max-warnings=0 && eslint . --ext .ts,.tsx",
-    "format": "prettier --write .",
-    "check": "npm run format && npm run lint && tsc --noEmit"
+    "gen:tokens": "node scripts/gen-css-tokens.mjs",
+    "gen:tokens:watch": "node scripts/gen-css-tokens.mjs --watch",
+    "dev:watch": "concurrently -k -n TOKENS,DEV -c yellow,cyan \"npm:gen:tokens:watch\" \"npm:dev\""
   },
   "dependencies": {
+    "clsx": "2.1.1",
+    "framer-motion": "11.13.1",
+    "lucide-react": "0.478.0",
     "next": "15.0.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "clsx": "2.1.1"
+    "tailwind-merge": "2.5.2"
   },
   "devDependencies": {
-    "@types/node": "22.7.4",
-    "@types/react": "18.3.10",
-    "@types/react-dom": "18.3.0",
+    "@tailwindcss/typography": "0.5.15",
+    "@types/node": "20.14.12",
+    "@types/react": "19.1.14",
     "autoprefixer": "10.4.20",
-    "eslint": "8.57.0",
-    "eslint-config-next": "15.0.3",
-    "@typescript-eslint/parser": "7.18.0",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "eslint-plugin-import": "2.30.0",
-    "eslint-plugin-unused-imports": "3.2.0",
-    "eslint-plugin-tailwindcss": "3.17.5",
+    "concurrently": "9.1.0",
     "postcss": "8.4.47",
-    "prettier": "3.3.3",
-    "tailwindcss": "3.4.14",
-    "typescript": "5.6.2"
+    "tailwindcss": "3.4.13",
+    "typescript": "5.6.3"
   }
 }

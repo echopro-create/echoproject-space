@@ -1,14 +1,21 @@
-import { Card } from '../components/UI/Card';
-
-export default function MessagesPage() {
+export const dynamic = "force-static";
+import { Card } from "@/app/components/UI/Card";
+import Link from "next/link";
+export const metadata = { title: "Послания — ECHO" };
+export default function MessagesPage(){
   return (
-    <div>
-      <h1 className="mb-4 text-2xl font-semibold tracking-tight md:text-3xl">РњРѕРё РїРѕСЃР»Р°РЅРёСЏ</h1>
-      <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {[1,2,3].map(i => (
-          <li key={i}><Card><p className="clamp-1">РљР°СЂС‚РѕС‡РєР° #{i}. Р”Р»РёРЅРЅРѕРµ-РґР»РёРЅРЅРѕРµ-РґР»РёРЅРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РґР»СЏ С‚РµСЃС‚Р° РїРµСЂРµРЅРѕСЃРѕРІ Рё СѓСЃС‚РѕР№С‡РёРІРѕСЃС‚Рё СЃРµС‚РєРё.</p></Card></li>
-        ))}
-      </ul>
-    </div>
+    <section className="container py-12">
+      <h1 className="text-2xl font-semibold mb-4">Мои послания</h1>
+      <Card className="mb-4">
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="font-medium">Черновик #1</div>
+            <div className="text-sm text-muted">Текстовое послание</div>
+          </div>
+          <Link href="/messages/new" className="px-4 py-2 rounded-2xl border border-border">Продолжить</Link>
+        </div>
+      </Card>
+      <Link href="/messages/new" className="px-4 py-2 rounded-2xl bg-black text-white">Оставить послание</Link>
+    </section>
   );
 }

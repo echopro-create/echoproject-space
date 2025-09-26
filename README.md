@@ -1,18 +1,24 @@
-# ECHO — Ultimate Starter (120 code + 100 design)
+# ECHO — чистый старт (Next.js 15, TypeScript, Tailwind, RU-only, light-only)
 
-Минимальный, но жёстко дисциплинированный каркас проекта на Next.js 15 + TypeScript + Tailwind.
-Без фич, только правильная структура, строгие конфиги и устойчивая вёрстка.
+## Установка
+```powershell
+npm i
+```
 
-## Скрипты
-- `npm run dev` — локальный режим
-- `npm run build && npm start` — прод
-- `npm run format` — форматирование Prettier
-- `npm run lint` — линтинг (ESLint + Tailwind)
-- `npm run check` — формат + линт + типы
+## Запуск
+```powershell
+npm run dev        # генерирует токены и стартует dev
+npm run dev:watch  # вотчер токенов + dev
+```
 
-## Принципы
-- Строгий TypeScript, единый стиль, LF, UTF-8 без BOM
-- Контейнер, сетка 12 колонок, max-width текста `72ch`
-- Фикс высот инпутов/кнопок, aspect-ratio для медиа
-- Компоненты без внешних отступов, вертикальный ритм через Stack
-- Безопасные глобальные стили, остальное — утилити/локальные классы
+## Билд
+```powershell
+npm run build
+npm start
+```
+
+## Фиксы внутри
+- Нет `postcss.config.js`, только `postcss.config.cjs` (ESM-совместимо).
+- `/app/messages/new/page.tsx` — серверная страница с `metadata`.
+- Клиентская логика вынесена в `ClientNewMessage.tsx`.
+- Все файлы UTF-8 без BOM.

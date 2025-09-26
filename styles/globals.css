@@ -1,0 +1,19 @@
+@import "./_tokens.css";
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { text-decoration: none; }
+a:hover { opacity: .85; }
+.container { max-width: 1200px; margin: 0 auto; padding-inline: 16px; }
+.skip-link { position: absolute; left: -9999px; top: -9999px; }
+.skip-link:focus { left: 16px; top: 16px; background: #000; color: #fff; padding: 8px 12px; border-radius: 8px; }
+.prose :where(h1,h2,h3,h4){ color: rgb(var(--text)); }
+.prose a { color: rgb(var(--primary)); }

@@ -1,5 +1,4 @@
-import { ReactNode } from 'react';
-
-export function Card({ children }: { children: ReactNode }) {
-  return <section className="rounded-xl border border-neutral-200 p-6 shadow-sm">{children}</section>;
+import { clsx } from "clsx";
+export function Card({ className, children }:{ className?:string; children:React.ReactNode }){
+  return <div className={clsx("rounded-2xl border border-border p-4", className)}>{children}</div>;
 }

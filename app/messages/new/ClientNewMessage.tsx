@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-
-export default function ClientNewMessage() {
+export default function ClientNewMessage(){
   const [tab, setTab] = useState<"text"|"audio"|"video">("text");
   return (
     <section className="container py-12">
