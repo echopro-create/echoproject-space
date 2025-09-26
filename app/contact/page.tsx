@@ -1,11 +1,16 @@
-﻿export default function ContactPage() {
+﻿import StaticPage from "@/app/components/Static/StaticPage";
+
+export const dynamic = "force-static";
+
+export const metadata = {
+  title: "Контакты  ECHO",
+  description: "Контакты  ECHO",
+};
+
+export default function Page() {
   return (
-    <div className="text-page-content">
-      <article className="content-block">
-        <h1 className="manifest-title centered-title">РљРѕРЅС‚Р°РєС‚С‹</h1>
-        <p>РџРѕ РІСЃРµРј РІРѕРїСЂРѕСЃР°Рј РїРёС€РёС‚Рµ РЅР°: support@echoproject.space</p>
-      </article>
-    </div>
+    <StaticPage title="Контакты">
+      <p>Связаться можно через форму или email. Тут будет форма.</p>
+    </StaticPage>
   );
 }
-

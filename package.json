@@ -1,28 +1,28 @@
-{
-  "name": "echo-2-0-site",
-  "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@supabase/auth-helpers-nextjs": "0.10.0",
-    "@supabase/ssr": "0.7.0",
-    "@supabase/supabase-js": "2.58.0",
-    "next": "^15.5.4",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "tailwind-merge": "3.3.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20.11.30",
-    "@types/react": "^18.3.3",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.10",
-    "typescript": "^5.5.4"
-  }
+﻿{
+    "name":  "echo-2-0-site",
+    "private":  true,
+    "version":  "1.0.0",
+    "scripts":  {
+                    "dev":  "next dev",
+                    "build":  "next build",
+                    "start":  "next start",
+                    "lint":  "next lint"
+                },
+    "dependencies":  {
+                         "@supabase/auth-helpers-nextjs":  "0.10.0",
+                         "@supabase/ssr":  "0.7.0",
+                         "@supabase/supabase-js":  "2.58.0",
+                         "next":  "^15.5.4",
+                         "react":  "18.3.1",
+                         "react-dom":  "18.3.1",
+                         "tailwind-merge":  "3.3.1"
+                     },
+    "devDependencies":  {
+                            "@types/node":  "^20.11.30",
+                            "@types/react":  "^18.3.3",
+                            "autoprefixer":  "^10.4.21",
+                            "postcss":  "^8.5.6",
+                            "tailwindcss":  "^3.4.14",
+                            "typescript":  "^5.5.4"
+                        }
 }
