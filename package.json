@@ -13,22 +13,24 @@
     "dev:watch": "concurrently -k -n TOKENS,DEV -c yellow,cyan \"npm:gen:tokens:watch\" \"npm:dev\""
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.58.0",
     "clsx": "2.1.1",
     "framer-motion": "11.13.1",
-    "lucide-react": "0.478.0",
+    "lucide-react": "^0.478.0",
     "next": "^15.5.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "2.5.2"
+    "resend": "^6.1.0",
+    "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "0.5.15",
     "@types/node": "20.14.12",
     "@types/react": "19.1.14",
-    "autoprefixer": "10.4.20",
+    "autoprefixer": "^10.4.20",
     "concurrently": "9.1.0",
-    "postcss": "8.4.47",
-    "tailwindcss": "3.4.13",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
     "typescript": "5.6.3"
   }
 }

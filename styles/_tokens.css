@@ -1,10 +1,10 @@
 :root{
-  --bg: 255 255 255;
-  --text: 15 18 25;
-  --muted: 110 115 125;
-  --primary: 0 0 0;
-  --primary-text: 15 18 25;
-  --font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, 'Apple Color Emoji', 'Segoe UI Emoji';
-  --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
+  --bg: undefined;
+  --text: #222222;
+  --muted: #666666;
+  --primary: #000000;
+  --primary-text: undefined;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --radius-xl: 24px;
+  --radius-2xl: undefined;
 }

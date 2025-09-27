@@ -1,20 +1,21 @@
 import type { Config } from "tailwindcss";
-const config: Config = {
-  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}","./lib/**/*.{js,ts,jsx,tsx,mdx}","./styles/**/*.css"],
+
+export default {
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      colors: {
-        bg: "rgb(var(--bg))",
-        text: "rgb(var(--text))",
-        muted: "rgb(var(--muted))",
-        primary: "rgb(var(--primary))",
-        "primary-text": "rgb(var(--primary-text))",
-        border: "rgba(var(--text),0.12)"
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"]
       },
-      borderRadius: { xl:"var(--radius-xl)", "2xl":"var(--radius-2xl)" }
-    },
-    container: { center: true, padding: "16px" }
+      colors: {
+        background: "var(--colors-background)",
+        text: "var(--colors-text)",
+        muted: "var(--colors-muted)",
+        border: "var(--colors-border)",
+        primary: "var(--colors-primary)"
+      },
+      borderRadius: { DEFAULT: "12px", xl: "24px" }
+    }
   },
-  plugins: [require("@tailwindcss/typography")]
-};
-export default config;
+  plugins: []
+} satisfies Config;

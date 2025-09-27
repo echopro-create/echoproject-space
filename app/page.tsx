@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import HeroTimeline from "@/app/components/HeroTimeline";
 
 export const dynamic = "force-static";
 
@@ -26,6 +27,7 @@ export default function Home() {
           Оставить послание
         </Link>
       </section>
+      <HeroTimeline />
 
       <footer className="pointer-events-none footer-fixed z-10 text-center text-neutral-500">
          2025 ECHO
@@ -33,5 +35,7 @@ export default function Home() {
     </main>
   );
 }
+
+
 
 
