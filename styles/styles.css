@@ -137,3 +137,27 @@ main{ height: 100dvh; overflow: hidden; }
 }
 .hero-subtitle { margin-top: 0.9rem; }
 .hero-cta { margin-top: 1.6rem; }
+/* === Shell: центральное поле === */
+.hero-shell {
+  position: relative;
+  padding: 2rem;
+  border-radius: 32px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+  transition: transform .6s ease, box-shadow .6s ease;
+}
+
+/* Лёгкий параллакс при наведении */
+.hero-shell:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.08);
+}
+
+/* Контейнер не больше нужного и всегда в центре */
+.hero-wrap {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
