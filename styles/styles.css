@@ -312,3 +312,52 @@ main{ height: 100dvh; overflow: hidden; }
   opacity: 0.95;
   background-attachment: fixed;
 }
+/* === Фон: блеклое перо === */
+.bg-hero-feather {
+  background: url("/feather.svg") center center / 600px no-repeat;
+  filter: grayscale(100%) opacity(0.15);
+}
+
+/* === Типографика героя === */
+.hero-title {
+  font-size: clamp(28px, 4.8vw, 60px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  max-width: 20ch;
+  white-space: nowrap; /* по твоему требованию в одну строку */
+  color: #000;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2vw, 22px);
+  color: #3f3f46;
+  line-height: 1.6;
+  max-width: 50ch;
+  margin: 0 auto;
+  white-space: nowrap; /* в одну строку */
+}
+
+/* === CTA как шаги === */
+.hero-step {
+  display: block;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.05);
+  transition: background 0.2s, transform 0.2s;
+}
+.hero-step:hover { background: rgba(0, 0, 0, 0.08); transform: translateY(-2px); }
+.hero-step:active { background: rgba(0, 0, 0, 0.10); transform: translateY(0); }
+.hero-step:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(0,0,0,.12); }
+
+/* === Футер всегда у нижней кромки (safe-area учтена) === */
+.footer-fixed {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: max(env(safe-area-inset-bottom), 8px);
+}
+html, body { background:#fff; height:100%; }
+main { min-height: 100dvh; }

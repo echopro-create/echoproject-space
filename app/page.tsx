@@ -29,12 +29,17 @@ export default function Home() {
       </section>
       <HeroTimeline />
 
-      <footer className="pointer-events-none footer-fixed z-10 text-center text-neutral-500">
+      < param($m)
+  $cls = $m.Groups[1].Value
+  if ($cls -notmatch 'footer-fixed') { $cls = $cls + ' footer-fixed' }
+  'footer className="' + $cls + '"'
+>
          2025 ECHO
       </footer>
     </main>
   );
 }
+
 
 
 
