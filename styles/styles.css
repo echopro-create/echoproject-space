@@ -312,8 +312,8 @@ main{ height: 100dvh; overflow: hidden; }
   opacity: 0.95;
   background-attachment: fixed;
 }
-/* === Фон: блеклое перо === */
-.bg-hero-feather {
+
+. {
   background: url("/feather.svg") center center / 600px no-repeat;
   filter: grayscale(100%) opacity(0.15);
 }
