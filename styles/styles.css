@@ -337,8 +337,8 @@ main{ height: 100dvh; overflow: hidden; }
   white-space: nowrap; /* в одну строку */
 }
 
-/* === CTA как шаги === */
-.hero-step {
+
+
   display: block;
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 500;
@@ -349,9 +349,9 @@ main{ height: 100dvh; overflow: hidden; }
   background: rgba(0, 0, 0, 0.05);
   transition: background 0.2s, transform 0.2s;
 }
-.hero-step:hover { background: rgba(0, 0, 0, 0.08); transform: translateY(-2px); }
-.hero-step:active { background: rgba(0, 0, 0, 0.10); transform: translateY(0); }
-.hero-step:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(0,0,0,.12); }
+
+
+
 
 /* === Футер всегда у нижней кромки (safe-area учтена) === */
 .footer-fixed {

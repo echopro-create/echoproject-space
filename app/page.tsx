@@ -19,17 +19,12 @@ export default function Home() {
         Мы сохраним ваши слова и доставим их туда, куда вы уже не сможете.
       </p>
 
-      <div className="hero-steps mt-10 space-y-4">
-        <Link href="/messages/new" className="hero-step">
-          1. Создать своё послание
-        </Link>
-        <Link href="/messages/new?type=video" className="hero-step">
-          2. Записать видео для будущего
-        </Link>
-        <Link href="/messages/new?start=true" className="hero-step">
-          3. Начать
-        </Link>
-      </div>
+      <Link
+        href="/messages/new"
+        className="mt-10 inline-flex items-center justify-center rounded-2xl px-8 py-3 text-lg font-medium bg-black text-white hover:opacity-90 active:opacity-80 transition"
+      >
+        Оставить послание
+      </Link>
 
       <footer className="pointer-events-none footer-fixed inset-x-0 bottom-4 z-10 text-center text-neutral-500 text-sm mt-16">
          2025 ECHO
