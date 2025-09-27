@@ -1,46 +1,46 @@
 ﻿import Link from "next/link";
-import HeroTimeline from "@/app/components/HeroTimeline";
 
 export const dynamic = "force-static";
 
 export const metadata = {
   title: "Послания, которые будут доставлены позже  ECHO",
   description:
-    "Запишите текст, голос или видео. Мы доставим их адресатам в нужный день, даже после вашей смерти.",
+    "Мы сохраним ваши слова и доставим их туда, куда вы уже не сможете.",
 };
 
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-white">
-      <div aria-hidden className="pointer-events-none absolute inset-0 hero-bg" />
+      {/* Фон-перо */}
+      <div aria-hidden className="absolute inset-0 bg-hero-feather opacity-20" />
 
-      <section className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1100px] flex-col items-center justify-center px-4 sm:px-6 text-center">
-        <h1 className="hero-title nowrap">
+      {/* Контент */}
+      <section className="relative z-10 mx-auto flex min-h-screen max-w-[900px] flex-col items-center justify-center px-6 text-center">
+        <h1 className="hero-title">
           Послания, которые будут доставлены позже
         </h1>
 
-        <p className="hero-subtitle nowrap">
-          Текст, голос или видео. Доставка адресатам в выбранный день. Даже если вас уже нет.
+        <p className="hero-subtitle mt-4">
+          Мы сохраним ваши слова и доставим их туда, куда вы уже не сможете.
         </p>
 
-        <Link href="/messages/new" className="hero-cta">
-          Оставить послание
-        </Link>
+        <div className="hero-steps mt-10 space-y-4">
+          <Link href="/messages/new" className="hero-step">
+            1. Создать своё послание
+          </Link>
+          <Link href="/messages/new?type=video" className="hero-step">
+            2. Записать видео для будущего
+          </Link>
+          <Link href="/messages/new?start=true" className="hero-step">
+            3. Начать
+          </Link>
+        </div>
       </section>
-      <HeroTimeline />
 
-      < param($m)
-  $cls = $m.Groups[1].Value
-  if ($cls -notmatch 'footer-fixed') { $cls = $cls + ' footer-fixed' }
-  'footer className="' + $cls + '"'
->
+      {/* Футер */}
+      <footer className="pointer-events-none footer-fixed inset-x-0 bottom-4 z-10 text-center text-neutral-500 text-sm">
          2025 ECHO
       </footer>
     </main>
   );
 }
-
-
-
-
-
