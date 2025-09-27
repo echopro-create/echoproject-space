@@ -151,3 +151,23 @@ html, body{ background:#fff; }
 }
 
 /* остальное без изменений */
+/* === Single-line guard: не вылезать за экран, прижаться красиво === */
+.hero-wrap { width: 100%; max-width: 1200px; padding-left: 16px; padding-right: 16px; }
+
+.nowrap{ white-space:nowrap; word-break:keep-all; overflow-wrap:normal; }
+
+.hero-title,
+.hero-subtitle{
+  display:block;
+  max-width: calc(100vw - 32px);  /* безопасная ширина с учётом полей */
+  overflow:hidden; 
+  text-overflow: ellipsis;        /* на совсем узких экранах не ломаемся, а ставим  */
+}
+
+/* Подстроим размеры под одну строку на любом размере экрана */
+.hero-title{ font-size: clamp(22px, 6vw, 60px); }
+.hero-subtitle{ font-size: clamp(12px, 2.1vw, 20px); }
+
+/* Без вертикальной прокрутки на главной */
+html, body { height: 100%; }
+main{ height: 100dvh; overflow: hidden; }
