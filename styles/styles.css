@@ -62,3 +62,26 @@ a[href="/messages/new"]:active {
   font-size: 14px;
   color: #71717a;
 }
+/* === single-line helpers === */
+.nowrap { white-space: nowrap; word-break: keep-all; overflow-wrap: normal; }
+
+/* Подгоняем размер так, чтобы на любой ширине это была ОДНА строка */
+.hero-title{
+  margin: .25rem 0 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  /* vw гарантирует, что строка сожмётся и не сломается */
+  font-size: clamp(20px, 6vw, 64px);
+  max-width: none;
+  color:#000;
+}
+
+.hero-subtitle{
+  margin: 1rem auto 0;
+  font-size: clamp(13px, 2.2vw, 20px);
+  line-height: 1.45;
+  color:#3f3f46;
+}
+
+/* остальное без изменений */
