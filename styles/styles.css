@@ -74,3 +74,80 @@ html, body { background: #fff; }
 @media (min-width: 1280px) {
   .hero-title { max-width: 18ch; }
 }
+/* === ECHO: Hero background (светлые кольца + мягкий градиент) === */
+.hero-bg {
+  background:
+    radial-gradient(1000px 700px at 20% 25%, rgba(0,0,0,0.06), rgba(0,0,0,0) 55%),
+    radial-gradient(1200px 800px at 80% 80%, rgba(0,0,0,0.05), rgba(0,0,0,0) 60%),
+    radial-gradient(1200px 1000px at 50% -10%, rgba(0,0,0,0.04), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  mask-image:
+    radial-gradient(1200px 800px at 50% 50%, rgba(0,0,0,0.9), rgba(0,0,0,0.2) 70%, transparent 100%);
+  opacity: 0.9;
+}
+
+/* === ECHO: Типографика героя === */
+.balance { text-wrap: balance; }
+
+.hero-title{
+  margin: 0.25rem 0 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-size: clamp(34px, 5.2vw, 72px);
+  max-width: 18ch;
+  color:#000;
+}
+
+.hero-subtitle{
+  margin: 1.25rem auto 0;
+  max-width: 62ch;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
+  color:#3f3f46;
+}
+
+/* Кнопка без вычурности, но заметная */
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top: 2rem;
+  padding: 0.9rem 1.4rem;
+  border-radius: 16px;
+  background:#000;
+  color:#fff;
+  font-weight:600;
+  font-size: clamp(15px, 1.7vw, 18px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+  transition: transform .12s ease, opacity .12s ease, box-shadow .12s ease;
+}
+.hero-cta:hover{ opacity:.92; box-shadow: 0 10px 24px rgba(0,0,0,.16); transform: translateY(-1px); }
+.hero-cta:active{ opacity:.85; transform: translateY(0); }
+.hero-cta:focus-visible{ outline: none; box-shadow: 0 0 0 4px rgba(0,0,0,.12); }
+
+/* Фон страницы всегда белый */
+html, body{ background:#fff; }
+/* === single-line helpers === */
+.nowrap { white-space: nowrap; word-break: keep-all; overflow-wrap: normal; }
+
+/* Подгоняем размер так, чтобы на любой ширине это была ОДНА строка */
+.hero-title{
+  margin: .25rem 0 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  /* vw гарантирует, что строка сожмётся и не сломается */
+  font-size: clamp(20px, 6vw, 64px);
+  max-width: none;
+  color:#000;
+}
+
+.hero-subtitle{
+  margin: 1rem auto 0;
+  font-size: clamp(13px, 2.2vw, 20px);
+  line-height: 1.45;
+  color:#3f3f46;
+}
+
+/* остальное без изменений */
