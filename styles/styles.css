@@ -203,3 +203,20 @@ main{ height: 100dvh; overflow: hidden; }
 }
 .hero-subtitle { margin-top: 0.9rem; }
 .hero-cta { margin-top: 1.6rem; }
+/* Ужимаем заголовок: одна строка, но без плаката на всю стену */
+.hero-title{
+  font-size: clamp(26px, 4.2vw, 56px); /* было ~6vw */
+  letter-spacing: -0.015em;
+}
+
+/* Подзаголовок чуть тише */
+.hero-subtitle{
+  font-size: clamp(13px, 1.6vw, 18px);
+}
+
+/* Футер фиксируем к самому низу экрана, с учётом safe-area */
+.footer-fixed{
+  position: fixed;
+  left: 0; right: 0;
+  bottom: max(env(safe-area-inset-bottom), 8px);
+}

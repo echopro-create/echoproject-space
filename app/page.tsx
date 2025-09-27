@@ -27,10 +27,11 @@ export default function Home() {
         </Link>
       </section>
 
-      <footer className="pointer-events-none absolute inset-x-0 bottom-6 z-10 text-center text-neutral-500">
+      <footer className="pointer-events-none footer-fixed z-10 text-center text-neutral-500">
          2025 ECHO
       </footer>
     </main>
   );
 }
+
 
