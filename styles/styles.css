@@ -105,3 +105,35 @@ a[href="/messages/new"]:active {
 /* Без вертикальной прокрутки на главной */
 html, body { height: 100%; }
 main{ height: 100dvh; overflow: hidden; }
+/* === Анимация появления === */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title {
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.hero-subtitle {
+  animation: fadeUp 0.9s ease-out forwards;
+  animation-delay: 0.25s;
+  opacity: 0;
+}
+
+.hero-cta {
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+/* === Воздушный фон === */
+.hero-bg {
+  background:
+    radial-gradient(1200px 800px at 50% 20%, rgba(0,0,0,0.05), rgba(0,0,0,0) 70%),
+    radial-gradient(1000px 600px at 20% 80%, rgba(0,0,0,0.04), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+}
+.hero-subtitle { margin-top: 0.9rem; }
+.hero-cta { margin-top: 1.6rem; }
